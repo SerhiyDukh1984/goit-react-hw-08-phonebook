@@ -1,16 +1,12 @@
 import { useForm } from 'hooks/useForm';
-import { useDispatch } from 'react-redux';
 
 export const RegisterForm = () => {
-  const dispatch = useDispatch();
-  const { form, handleChange, handleSubmit, reset } = useForm({
+  const { form, handleChange, handleSubmit } = useForm({
     initialsValues: { name: '', email: '', password: '' },
     onSubmit: values => console.log(values),
   });
 
   const { name, email, password } = form;
-
-  //   reset();
 
   return (
     <>
