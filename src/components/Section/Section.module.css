@@ -1,0 +1,11 @@
+.section {
+  padding: 20px;
+  width: 100%px;
+  /* height: 100vw; */
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  background-image: url(../../icons/tryzub5.svg);
+  background-repeat: no-repeat;
+  background-size: 24%;
+}

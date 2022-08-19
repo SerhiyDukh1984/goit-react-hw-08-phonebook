@@ -1,0 +1,13 @@
+.header {
+  display: flex;
+}
+
+.logo {
+  margin-right: 100px;
+}
+
+.button {
+  width: 150px;
+  height: 50px;
+  margin-right: 20px;
+}

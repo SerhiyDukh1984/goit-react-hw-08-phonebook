@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  text-align: center;
+}
+
+.title {
+  width: 520px;
+  font-size: 60px;
+  font-weight: bold;
+  margin-top: 0;
+  margin-left: 40%;
+}
+
+.contacts {
+  display: inline-block;
+  margin-top: 0;
+  font-size: 34px;
+}
+
+.text {
+  margin-top: 50px;
+  font-size: 60px;
+}
+
+.item {
+  width: 600px;
+}
