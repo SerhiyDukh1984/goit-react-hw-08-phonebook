@@ -17,16 +17,16 @@ export const LoginPage = () => {
       setPassword(value);
     }
 
-    const handleSubmit = e => {
-      e.preventDefault();
+    // const handleSubmit = e => {
+    //   e.preventDefault();
 
-      reset();
-    };
+    //   reset();
+    // };
 
-    const reset = () => {
-      setEmail('');
-      setPassword('');
-    };
+    // const reset = () => {
+    //   setEmail('');
+    //   setPassword('');
+    // };
   };
 
   return (
