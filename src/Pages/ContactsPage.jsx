@@ -15,17 +15,17 @@ export const ContactsPage = () => {
   });
 
   return (
-    <>
+    <div>
       <h1 className={s.title}>Телефонна книга</h1>
       <div className={s.container}>
         <ContactForm />
         <div className={s.item}>
-          <h2 className={s.contacts}>Контакти ({contacts})</h2>
+          <h2 className={s.contacts}>Контакти </h2>
           <Filter />
           <ContactsList />
         </div>
       </div>
       <h2 className={s.text}>русский военный корабль, иди НАХ*Й</h2>
-    </>
+    </div>
   );
 };

@@ -1,32 +1,34 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
-
+import { useSelector } from 'react-redux';
 import Section from '../Section/Section';
-
 import { Header } from 'components/Header/Header';
+import { RegisterPage } from 'Pages/RegisterPage';
+import { LoginPage } from 'Pages/LoginPage';
 import { ContactsPage } from 'Pages/ContactsPage';
+import { HomePage } from 'Pages/HomePage';
+import { getIsAuth } from 'Redux/auth/authSelector';
 
 const App = () => {
-  return (
-    <>
-      <Section>
-        {/* {!contacts && <Header />} */}
-        <Routes>
-          <Route path="/" element={<Header />} />
+  const isAuth = useSelector(getIsAuth);
 
-          <Route path="/contacts" element={<ContactsPage />} />
+  return (
+    <Section>
+      <Header />
+      {isAuth ? (
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="contacts" element={<ContactsPage />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
-        {/* <h1 className={s.title}>Телефонна книга</h1>
-        <div className={s.container}>
-          <ContactForm />
-          <div className={s.item}>
-            <h2 className={s.contacts}>Контакти ({contacts})</h2>
-            <Filter />
-            <ContactsList />
-          </div>
-        </div>
-        <h2 className={s.text}>русский военный корабль, иди НАХ*Й</h2> */}
-      </Section>
-    </>
+      ) : (
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="login" element={<LoginPage />} />
+          <Route path="auth" element={<RegisterPage />} />
+          <Route path="*" element={<Navigate to="login" />} />
+        </Routes>
+      )}
+    </Section>
   );
 };
 
