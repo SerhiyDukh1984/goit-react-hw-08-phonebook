@@ -24,11 +24,13 @@ export const removeContactsApi = async id => {
 export const registerUserApi = async userData => {
   console.log(userData);
   await axios
-    .post('https://connections-api.herokuapp.com/authorization/users/signup', {
+    .post('https://connections-api.herokuapp.com/users/signup', {
       ...userData,
     })
     .then(({ data }) => {
-      console.log(data);
-      return data;
+      console.log('🚀 ~ data', data);
+      const { ...postedUserData } = data;
+      console.log('🚀 ~ postedUserData', postedUserData);
+      return postedUserData;
     });
 };

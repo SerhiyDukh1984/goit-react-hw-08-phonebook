@@ -1,9 +1,13 @@
 import { useForm } from 'hooks/useForm';
+import { useDispatch } from 'react-redux';
+import { registerUser } from 'Redux/auth/authOperation';
 
 export const RegisterForm = () => {
+  const dispatch = useDispatch();
+
   const { form, handleChange, handleSubmit } = useForm({
     initialsValues: { name: '', email: '', password: '' },
-    onSubmit: values => console.log(values),
+    onSubmit: values => dispatch(registerUser(values)),
   });
 
   const { name, email, password } = form;
