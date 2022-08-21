@@ -20,17 +20,22 @@ export const removeContactsApi = async id => {
   return id;
 };
 
-// https://connections-api.herokuapp.com/authorization
 export const registerUserApi = async userData => {
-  console.log(userData);
   await axios
     .post('https://connections-api.herokuapp.com/users/signup', {
       ...userData,
     })
     .then(({ data }) => {
-      console.log('🚀 ~ data', data);
-      const { ...postedUserData } = data;
-      console.log('🚀 ~ postedUserData', postedUserData);
-      return postedUserData;
+      return data;
+    });
+};
+
+export const loginUserApi = async userData => {
+  await axios
+    .post('https://connections-api.herokuapp.com/users/login', {
+      ...userData,
+    })
+    .then(({ data }) => {
+      return data;
     });
 };
