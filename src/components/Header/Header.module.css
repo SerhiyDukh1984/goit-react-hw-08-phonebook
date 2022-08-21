@@ -14,3 +14,7 @@
   height: 30px;
   margin-right: 20px;
 }
+
+.btnList {
+  list-style: none;
+}

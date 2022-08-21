@@ -1,15 +1,24 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 import Section from '../Section/Section';
 import { Header } from 'components/Header/Header';
 import { RegisterPage } from 'Pages/RegisterPage';
 import { LoginPage } from 'Pages/LoginPage';
 import { ContactsPage } from 'Pages/ContactsPage';
 import { HomePage } from 'Pages/HomePage';
-import { getIsAuth } from 'Redux/auth/authSelector';
+import { getIsAuth, getMustCurUser } from 'Redux/auth/authSelector';
+import { getCurUser } from 'Redux/auth/authOperation';
 
 const App = () => {
+  const dispatch = useDispatch();
   const isAuth = useSelector(getIsAuth);
+  const mustCurUser = useSelector(getMustCurUser);
+  console.log('🚀 ~ mustCurUser', mustCurUser);
+
+  useEffect(() => {
+    mustCurUser && dispatch(getCurUser());
+  }, [dispatch, mustCurUser]);
 
   return (
     <Section>

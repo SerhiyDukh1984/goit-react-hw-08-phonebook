@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getIsAuth } from 'Redux/auth/authSelector';
-import { authToggle } from 'Redux/auth/authSlice';
+import { logOut } from 'Redux/auth/authSlice';
 import s from './Header.module.css';
 
 export const Header = () => {
@@ -11,14 +11,8 @@ export const Header = () => {
   return (
     <div className={s.header}>
       <h1 className={s.logo}>Logo</h1>
-      <button
-        onClick={() => {
-          dispatch(authToggle());
-        }}
-      >
-        toggle
-      </button>
-      <ul>
+
+      <ul className={s.btnList}>
         <li>
           <Link to="/">
             <button className={s.button} type="button">
@@ -48,6 +42,17 @@ export const Header = () => {
                   Contacts
                 </button>
               </Link>
+            </li>
+            <li>
+              <button
+                className={s.button}
+                type="button"
+                onClick={() => {
+                  dispatch(logOut());
+                }}
+              >
+                Log out
+              </button>
             </li>
           </>
         ) : (
