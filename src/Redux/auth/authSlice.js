@@ -5,14 +5,13 @@ const authSlice = createSlice({
   name: 'auth',
   initialState: {
     isAuth: false,
-    user: {
-      idToken: null,
-      name: null,
-      email: null,
-      password: null,
-    },
     isLoading: false,
     error: null,
+    user: {
+      token: null,
+      name: null,
+      email: null,
+    },
   },
   reducers: {
     authToggle(state) {
