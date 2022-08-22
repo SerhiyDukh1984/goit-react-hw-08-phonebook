@@ -21,7 +21,7 @@ export const LoginForm = () => {
             className={s.input}
             type="email"
             name="email"
-            placeholder="Email"
+            placeholder="Пошта"
             required
             value={email}
             onChange={handleChange}
@@ -33,7 +33,7 @@ export const LoginForm = () => {
             className={s.input}
             type="text"
             name="password"
-            placeholder="Password"
+            placeholder="Пароль"
             required
             value={password}
             onChange={handleChange}

@@ -3,7 +3,7 @@ import { RegisterForm } from 'components/RegisterForm/RegisterForm';
 export const RegisterPage = () => {
   return (
     <>
-      <h1>Register Form !!!</h1>
+      <h1>Реєстрація користувача !!!</h1>
       <RegisterForm />
     </>
   );

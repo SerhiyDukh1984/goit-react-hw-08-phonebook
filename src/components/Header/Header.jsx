@@ -25,7 +25,7 @@ export const Header = () => {
                   dispatch(logoutUser());
                 }}
               >
-                Log out
+                Вихід
               </button>
             </li>
           </div>
@@ -34,14 +34,14 @@ export const Header = () => {
             <li>
               <Link to="login">
                 <button className={s.button} type="button">
-                  Log In
+                  Авторизація
                 </button>
               </Link>
             </li>
             <li>
               <Link to="auth">
                 <button className={s.button} type="button">
-                  Authorization
+                  Реєстрація
                 </button>
               </Link>
             </li>
