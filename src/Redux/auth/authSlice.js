@@ -1,5 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getCurUser, loginUser, registerUser } from './authOperation';
+import {
+  getCurUser,
+  loginUser,
+  registerUser,
+  logoutUser,
+} from './authOperation';
 
 const authSlice = createSlice({
   name: 'auth',
@@ -12,17 +17,6 @@ const authSlice = createSlice({
     error: null,
     token: null,
   },
-  reducers: {
-    logOut(state) {
-      state.user = {
-        name: null,
-        email: null,
-      };
-      state.isLoading = false;
-      state.error = null;
-      state.token = null;
-    },
-  },
 
   extraReducers: {
     [registerUser.pending]: state => {
@@ -30,7 +24,7 @@ const authSlice = createSlice({
       state.error = null;
     },
     [registerUser.fulfilled]: (state, { payload }) => {
-      const { token, ...rest } = payload;
+      const { token, rest } = payload;
       state.isLoading = false;
       state.user = rest;
       state.token = token;
@@ -44,7 +38,9 @@ const authSlice = createSlice({
       state.error = null;
     },
     [loginUser.fulfilled]: (state, { payload }) => {
-      const { token, ...user } = payload;
+      const { token, user } = payload;
+      console.log('🚀 ~ payload', payload);
+
       state.isLoading = false;
       state.user = user;
       state.token = token;
@@ -65,8 +61,24 @@ const authSlice = createSlice({
       state.isLoading = false;
       state.error = payload;
     },
+    [logoutUser.pending]: state => {
+      state.isLoading = true;
+      state.error = null;
+    },
+    [logoutUser.fulfilled]: state => {
+      state.isLoading = false;
+      state.user = {
+        name: null,
+        email: null,
+      };
+      state.token = null;
+    },
+    [logoutUser.rejected]: (state, { payload }) => {
+      state.isLoading = false;
+      state.error = payload;
+    },
   },
 });
 
-export const { logOut } = authSlice.actions;
+// export const { logOut } = authSlice.actions;
 export default authSlice.reducer;

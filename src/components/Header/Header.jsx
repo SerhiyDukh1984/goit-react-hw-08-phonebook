@@ -1,41 +1,34 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { logoutUser } from 'Redux/auth/authOperation';
 import { getIsAuth } from 'Redux/auth/authSelector';
-import { logOut } from 'Redux/auth/authSlice';
+
 import s from './Header.module.css';
 
 export const Header = () => {
   const isAuth = useSelector(getIsAuth);
   const dispatch = useDispatch();
+  const email = useSelector(state => state.auth.user.email);
 
   return (
     <div className={s.header}>
-      <h1 className={s.logo}>Logo</h1>
-
       <ul className={s.btnList}>
-        <li>
-          <Link to="/">
-            <button className={s.button} type="button">
-              Home
-            </button>
-          </Link>
-        </li>
         {isAuth ? (
           <>
-            <li>
+            {/* <li>
               <Link to="nav">
                 <button className={s.button} type="button">
                   User Nav
                 </button>
               </Link>
-            </li>
-            <li>
+            </li> */}
+            {/* <li>
               <Link to="menu">
                 <button className={s.button} type="button">
                   User Menu
                 </button>
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link to="contacts">
                 <button className={s.button} type="button">
@@ -43,12 +36,13 @@ export const Header = () => {
                 </button>
               </Link>
             </li>
+            <li>{email}</li>
             <li>
               <button
                 className={s.button}
                 type="button"
                 onClick={() => {
-                  dispatch(logOut());
+                  dispatch(logoutUser());
                 }}
               >
                 Log out

@@ -13,6 +13,7 @@ export const getContactsApi = async () => {
   const response = await axios.get(
     'https://connections-api.herokuapp.com/contacts'
   );
+
   return response.data;
 };
 
@@ -21,11 +22,13 @@ export const addContactsApi = async contact => {
     'https://connections-api.herokuapp.com/contacts',
     contact
   );
+
   return response.data;
 };
 
 export const removeContactsApi = async id => {
   await axios.delete(`https://connections-api.herokuapp.com/contacts/${id}`);
+
   return id;
 };
 
@@ -36,6 +39,7 @@ export const registerUserApi = async userData => {
       ...userData,
     }
   );
+  savedToken.set(response.data.token);
   return response.data;
 };
 
@@ -46,6 +50,7 @@ export const loginUserApi = async userData => {
       ...userData,
     }
   );
+  savedToken.set(response.data.token);
   return response.data;
 };
 
@@ -56,4 +61,9 @@ export const getCurUserApi = async token => {
     { token }
   );
   return response.data;
+};
+
+export const logoutUserApi = async () => {
+  await axios.post('https://connections-api.herokuapp.com/users/logout');
+  savedToken.unset();
 };

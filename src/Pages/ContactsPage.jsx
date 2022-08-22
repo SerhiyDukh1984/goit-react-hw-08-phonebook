@@ -1,18 +1,19 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getContacts } from 'Redux/contacts/contactsOperation';
 import ContactForm from '../components/ContactForm/ContactForm';
 import ContactsList from '../components/ContactsList/ContactsList';
 import Filter from '../components/Filter/Filter';
 import s from '../components/App/App.module.css';
+import { getMustContacts } from 'Redux/auth/authSelector';
 
 export const ContactsPage = () => {
-  // const contacts = useSelector(state => state.contacts.items);
   const dispatch = useDispatch();
+  const mustContacts = useSelector(getMustContacts);
 
   useEffect(() => {
-    dispatch(getContacts());
-  });
+    mustContacts && dispatch(getContacts());
+  }, [dispatch, mustContacts]);
 
   return (
     <div>

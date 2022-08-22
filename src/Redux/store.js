@@ -10,9 +10,9 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-// import { contactsReducers } from './contacts/contacts-reducers';
+import { contactsReducers } from './contacts/contacts-reducers';
 import auth from './auth/authSlice';
-import contacts from './contacts/contactSlice';
+// import contacts from './contacts/contactsSlice';
 
 const authPersistConfig = {
   key: 'token',
@@ -22,7 +22,7 @@ const authPersistConfig = {
 
 export const store = configureStore({
   reducer: {
-    contacts,
+    contacts: contactsReducers,
     auth: persistReducer(authPersistConfig, auth),
   },
   middleware: getDefaultMiddleware =>
