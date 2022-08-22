@@ -1,6 +1,7 @@
 import { useForm } from 'hooks/useForm';
 import { useDispatch } from 'react-redux';
 import { loginUser } from 'Redux/auth/authOperation';
+import s from './LogimForm.module.css';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -14,9 +15,10 @@ export const LoginForm = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={s.form}>
         <label>
           <input
+            className={s.input}
             type="email"
             name="email"
             placeholder="Email"
@@ -28,6 +30,7 @@ export const LoginForm = () => {
 
         <label>
           <input
+            className={s.input}
             type="text"
             name="password"
             placeholder="Password"
@@ -36,7 +39,9 @@ export const LoginForm = () => {
             onChange={handleChange}
           />
         </label>
-        <button type="submit">OK</button>
+        <button type="submit" className={s.button}>
+          OK
+        </button>
       </form>
     </>
   );

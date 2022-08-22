@@ -1,40 +1,19 @@
-.header {
-  display: flex;
-  margin-left: 400px;
-  border-bottom: 4px solid blue;
-}
-
-.logo {
-  margin: 0;
-  margin-right: 100px;
+.input {
+  margin-right: 20px;
+  width: 450px;
+  height: 20px;
+  margin-bottom: 40px;
+  font-size: 18px;
+  border: none;
+  border-bottom: 3px solid blue;
+  background-color: transparent;
+  outline: none;
+  color: blue;
 }
 
 .button {
   width: 150px;
   height: 30px;
-  margin-right: 20px;
-}
-
-.btnList {
-  list-style: none;
-}
-
-.nav {
-  display: flex;
-  align-items: baseline;
-}
-
-.email {
-  margin-right: 500px;
-}
-
-.auth {
-  display: flex;
-  margin-right: 20px;
-  margin-left: 150px;
-}
-
-.button {
   margin-top: 2px;
   height: 40px;
   font-size: 18px;
@@ -51,4 +30,12 @@
 .button:hover {
   background-color: blue;
   color: yellow;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
 }

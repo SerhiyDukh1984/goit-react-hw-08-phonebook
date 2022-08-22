@@ -30,7 +30,7 @@ export const Header = () => {
             </li>
           </div>
         ) : (
-          <>
+          <div className={s.auth}>
             <li>
               <Link to="login">
                 <button className={s.button} type="button">
@@ -45,7 +45,7 @@ export const Header = () => {
                 </button>
               </Link>
             </li>
-          </>
+          </div>
         )}
       </ul>
     </div>
