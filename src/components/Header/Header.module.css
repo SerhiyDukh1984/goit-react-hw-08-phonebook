@@ -18,3 +18,12 @@
 .btnList {
   list-style: none;
 }
+
+.nav {
+  display: flex;
+  align-items: baseline;
+}
+
+.email {
+  margin-right: 200px;
+}

@@ -9,34 +9,14 @@ export const Header = () => {
   const isAuth = useSelector(getIsAuth);
   const dispatch = useDispatch();
   const email = useSelector(state => state.auth.user.email);
+  console.log('🚀 ~ email', email);
 
   return (
     <div className={s.header}>
       <ul className={s.btnList}>
         {isAuth ? (
-          <>
-            {/* <li>
-              <Link to="nav">
-                <button className={s.button} type="button">
-                  User Nav
-                </button>
-              </Link>
-            </li> */}
-            {/* <li>
-              <Link to="menu">
-                <button className={s.button} type="button">
-                  User Menu
-                </button>
-              </Link>
-            </li> */}
-            <li>
-              <Link to="contacts">
-                <button className={s.button} type="button">
-                  Contacts
-                </button>
-              </Link>
-            </li>
-            <li>{email}</li>
+          <div className={s.nav}>
+            <li className={s.email}>{email}</li>
             <li>
               <button
                 className={s.button}
@@ -48,7 +28,7 @@ export const Header = () => {
                 Log out
               </button>
             </li>
-          </>
+          </div>
         ) : (
           <>
             <li>
